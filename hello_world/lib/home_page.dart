@@ -59,7 +59,7 @@ class HomePageState extends State<HomePage> {
           child: Icon(Icons.add),
           onPressed: () {
             setState(() {
-              counter++;
+              counter++; // Breakpoint 1 - Analisar contador
             });
           }),
     );
@@ -72,8 +72,11 @@ class CustomSwitch extends StatelessWidget {
     return Switch(
       value: AppController.instance.isDarkTheme,
       onChanged: (value) {
-        AppController.instance.changeTheme();
+        AppController.instance.changeTheme(); // Breakpoint 2 - Analisar mudança de tema
       },
     );
   }
 }
+
+
+// Aula 20 -- Breakpoints
