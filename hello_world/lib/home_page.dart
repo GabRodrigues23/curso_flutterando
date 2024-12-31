@@ -77,6 +77,3 @@ class CustomSwitch extends StatelessWidget {
     );
   }
 }
-
-
-// Aula 20 -- Breakpoints
