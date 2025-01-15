@@ -14,6 +14,33 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: Image.network(
+                    'https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg'),
+                accountName: Text('User Test'),
+                accountEmail: Text('teste@gmail.com')),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              subtitle: Text('Tela de Inicio'),
+              onTap: () {
+                print('home');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Logout'),
+              subtitle: Text('Finalizar sessão'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text('Home Page'),
         actions: [CustomSwitch()],
@@ -72,7 +99,8 @@ class CustomSwitch extends StatelessWidget {
     return Switch(
       value: AppController.instance.isDarkTheme,
       onChanged: (value) {
-        AppController.instance.changeTheme(); // Breakpoint 2 - Analisar mudança de tema
+        AppController.instance
+            .changeTheme(); // Breakpoint 2 - Analisar mudança de tema
       },
     );
   }
